@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="circle">
+<circle id="dot" cx="21" cy="21" r="5" fill="var(--fill-0, #0A0A0A)"/>
+<g id="arrow" opacity="0" clip-path="url(#clip0_206_78)">
+<path id="Vector" d="M16.9931 25.8116L23.869 18.9357L23.869 23.926L25.2022 23.926L25.2022 16.6598L17.936 16.6598L17.936 17.9929L22.9262 17.9929L16.0503 24.8688L16.9931 25.8116Z" fill="var(--fill-0, white)"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_206_78">
+<rect width="16" height="16" fill="white" transform="translate(13 13)"/>
+</clipPath>
+</defs>
+</svg>

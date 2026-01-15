@@ -1,0 +1,26 @@
+{
+  "name": "@portfolio/utils",
+  "version": "1.0.0",
+  "description": "Shared utility functions for Portfolio monorepo",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "utilities",
+    "portfolio"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

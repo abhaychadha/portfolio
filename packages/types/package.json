@@ -1,0 +1,27 @@
+{
+  "name": "@portfolio/types",
+  "version": "1.0.0",
+  "description": "Shared TypeScript types for Portfolio monorepo",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "typescript",
+    "types",
+    "portfolio"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

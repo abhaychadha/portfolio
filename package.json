@@ -1,0 +1,43 @@
+{
+  "name": "portfolio-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Micro-frontend portfolio application using Module Federation",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:host": "npm run dev --workspace=host",
+    "dev:remote-about": "npm run dev --workspace=remote-about",
+    "dev:remote-projects": "npm run dev --workspace=remote-projects",
+    "build": "npm run build --workspaces --if-present",
+    "build:host": "npm run build --workspace=host",
+    "build:remote-about": "npm run build --workspace=remote-about",
+    "build:remote-projects": "npm run build --workspace=remote-projects",
+    "build:packages": "npm run build --workspace=@portfolio/ui --workspace=@portfolio/types --workspace=@portfolio/utils",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present || true"
+  },
+  "keywords": [
+    "module-federation",
+    "micro-frontends",
+    "next.js",
+    "react",
+    "portfolio",
+    "monorepo"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
