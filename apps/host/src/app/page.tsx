@@ -19,7 +19,7 @@ const Home: FC = () => {
   }, [smoothScroll]);
 
   return (
-    <div className="bg-background relative w-full min-h-screen" data-name="Home" data-node-id="7:29">
+    <div className="bg-background relative w-full min-h-screen min-w-0 overflow-x-hidden" data-name="Home" data-node-id="7:29">
       <Navigation />
 
       <HeroSection />

@@ -10,7 +10,7 @@ const Line: FC = () => {
         alt=""
         width={1320}
         height={1}
-        className="block max-w-none w-full h-auto"
+        className="block w-full max-w-full h-auto"
       />
     </div>
   );

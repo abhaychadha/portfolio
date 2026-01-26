@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Manrope } from "next/font/google";
 import { siteMetadata } from "@portfolio/content";
 import { ThemeProvider } from "@/providers/ThemeProvider";
@@ -19,6 +19,11 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: siteMetadata.title,
   description: siteMetadata.description,
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
