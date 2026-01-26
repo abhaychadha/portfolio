@@ -1,0 +1,23 @@
+{
+  "name": "@portfolio/feature-flags",
+  "version": "1.0.0",
+  "description": "Centralized feature flags with app → page → feature hierarchy",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": ["feature-flags", "config", "portfolio"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

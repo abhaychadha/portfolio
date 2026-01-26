@@ -21,6 +21,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@portfolio/content": ["../../packages/content/src"],
+      "@portfolio/feature-flags": ["../../packages/feature-flags/src"],
       "@portfolio/ui": ["../../packages/ui/src"],
       "@portfolio/types": ["../../packages/types/src"],
       "@portfolio/utils": ["../../packages/utils/src"]

@@ -1,7 +1,7 @@
 import { NavigationConfig } from '../types';
 
 export const navigationConfig: NavigationConfig = {
-  brandName: 'robert garcia',
+  brandName: 'Abhay Chadha',
   links: [
     { label: 'Work', href: '#work' },
     { label: 'About', href: '#about' },

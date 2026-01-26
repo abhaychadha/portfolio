@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bebas_Neue, Manrope } from "next/font/google";
 import { siteMetadata } from "@portfolio/content";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { FeatureFlagsProvider } from "@/providers/FeatureFlagsProvider";
 import "./globals.css";
 
 const bebasNeue = Bebas_Neue({
@@ -31,7 +32,9 @@ export default function RootLayout({
         className={`${bebasNeue.variable} ${manrope.variable} antialiased`}
       >
         <ThemeProvider>
-          {children}
+          <FeatureFlagsProvider app="host">
+            {children}
+          </FeatureFlagsProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useEffect } from "react";
+import { useAppFeatures } from "@/providers/FeatureFlagsProvider";
 import Navigation from "@/components/navigation/Navigation";
 import HeroSection from "@/components/hero/HeroSection";
 import Line from "@/components/common/Line";
@@ -9,10 +10,13 @@ import AboutMeSection from "@/components/about/AboutMeSection";
 import ContactSection from "@/components/contact/ContactSection";
 
 const Home: FC = () => {
+  const { smoothScroll, sectionSeparators } = useAppFeatures();
+
   useEffect(() => {
-    // Enable smooth scrolling
-    document.documentElement.style.scrollBehavior = 'smooth';
-  }, []);
+    if (smoothScroll) {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }
+  }, [smoothScroll]);
 
   return (
     <div className="bg-background relative w-full min-h-screen" data-name="Home" data-node-id="7:29">
@@ -20,21 +24,27 @@ const Home: FC = () => {
 
       <HeroSection />
 
-      <div className="h-[1px] w-full">
-        <Line />
-      </div>
+      {sectionSeparators && (
+        <div className="h-[1px] w-full">
+          <Line />
+        </div>
+      )}
 
       <FeaturedProjectsSection />
 
-      <div className="h-[1px] w-full">
-        <Line />
-      </div>
+      {sectionSeparators && (
+        <div className="h-[1px] w-full">
+          <Line />
+        </div>
+      )}
 
       <AboutMeSection />
 
-      <div className="h-[1px] w-full">
-        <Line />
-      </div>
+      {sectionSeparators && (
+        <div className="h-[1px] w-full">
+          <Line />
+        </div>
+      )}
 
       <ContactSection />
     </div>

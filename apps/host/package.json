@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@portfolio/content": "*",
+    "@portfolio/feature-flags": "*",
     "@portfolio/types": "*",
     "@portfolio/ui": "*",
     "framer-motion": "^12.26.2",

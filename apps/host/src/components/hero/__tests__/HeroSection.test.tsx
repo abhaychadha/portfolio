@@ -1,34 +1,42 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import HeroSection from '../HeroSection';
+import { FeatureFlagsProvider } from '@/providers/FeatureFlagsProvider';
 
 // Mock framer-motion
 jest.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    div: ({ children, ...props }: React.ComponentProps<'div'>) => <div {...props}>{children}</div>,
   },
   useScroll: () => ({ scrollYProgress: 0 }),
   useTransform: () => 0,
 }));
 
+const wrapper = (
+  <FeatureFlagsProvider app="host">
+    <HeroSection />
+  </FeatureFlagsProvider>
+);
+
 describe('HeroSection', () => {
   it('renders the hero section', () => {
-    render(<HeroSection />);
+    render(wrapper);
     expect(screen.getByText(/hi, i am/i)).toBeInTheDocument();
-    expect(screen.getByText(/robert garcia/i)).toBeInTheDocument();
+    expect(screen.getByText(/Abhay Chadha/i)).toBeInTheDocument();
   });
 
   it('renders the hero description', () => {
-    render(<HeroSection />);
-    expect(screen.getByText(/Sydney based front-end developer/)).toBeInTheDocument();
+    render(wrapper);
+    expect(screen.getByText(/Staff Software Engineer in Bengaluru/)).toBeInTheDocument();
   });
 
   it('renders action buttons', () => {
-    render(<HeroSection />);
+    render(wrapper);
     expect(screen.getByText('Contact Me')).toBeInTheDocument();
   });
 
   it('renders social media buttons', () => {
-    render(<HeroSection />);
+    render(wrapper);
     const linkedinButton = screen.getByAltText('LinkedIn');
     const githubButton = screen.getByAltText('GitHub');
     expect(linkedinButton).toBeInTheDocument();
@@ -36,8 +44,8 @@ describe('HeroSection', () => {
   });
 
   it('renders the portrait image', () => {
-    render(<HeroSection />);
-    const portrait = screen.getByAltText('Robert Garcia');
+    render(wrapper);
+    const portrait = screen.getByAltText('Abhay Chadha');
     expect(portrait).toBeInTheDocument();
   });
 });

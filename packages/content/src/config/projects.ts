@@ -3,17 +3,18 @@ import { IMAGES, ICONS } from '../assets/images';
 
 export const projectsConfig: ProjectsConfig = {
   title: 'Featured Projects',
-  subtitle: 'Here are some of the selected projects that showcase my passion for front-end development.',
+  subtitle: 'Selected initiatives from 15+ years building scalable B2C web applications at enterprise scale.',
   projects: [
     {
-      id: 'adventure-time-landing',
-      image: IMAGES.projects.adventureTime,
-      tag: 'Conceptual Work',
-      title: 'Promotional landing page for our favorite show',
-      description: 'Teamed up with a designer to breathe life into a promotional webpage for our beloved show, Adventure Time. Delivered a fully responsive design with dynamic content capabilities, seamlessly integrating a newsletter feature to keep fans updated with the latest adventures.',
+      id: 'walmart-plus-sams-club',
+      image: IMAGES.projects.walmart,
+      tag: 'Enterprise',
+      title: "Walmart Plus & Sam's Club membership platform",
+      description: "Led modernization of the Walmart Plus platform (CA & MX) and Sam's Club membership funnel using React, Next.js, TypeScript, and GraphQL—achieving 2× subscription growth and 25% responsiveness improvement. Built caching for customer data and authored 10+ technical design specs.",
       info: [
-        { label: 'Year', value: '2023' },
-        { label: 'Role', value: 'Front-end Developer' },
+        { label: 'Year', value: '2023 – Present' },
+        { label: 'Role', value: 'Staff Software Engineer' },
+        { label: 'Client', value: 'Walmart' },
       ],
       links: [
         {
@@ -32,15 +33,16 @@ export const projectsConfig: ProjectsConfig = {
       useProjectCard: true,
     },
     {
-      id: 'world-news-blog',
-      imageSrc: IMAGES.projects.worldNews,
-      imageAlt: 'Blog site for World News',
-      title: 'Blog site for World News',
-      description: 'Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.',
+      id: 'sixt-mobile-checkin-microfrontends',
+      imageSrc: IMAGES.projects.sixt,
+      imageAlt: 'Sixt mobile check-in and micro-frontend platform',
+      tag: 'Platform',
+      title: 'Sixt mobile check-in & micro-frontend platform',
+      description: "Spearheaded documentation and mobile check-in platform; built web check-in from scratch (15% fewer counter pickups). Introduced micro-frontend architecture on sixt.com post-purchase flows. Drove 20% conversion improvement via performance and A/B testing.",
       info: [
-        { label: 'Client', value: 'World News' },
-        { label: 'Year', value: '2022' },
-        { label: 'Role', value: 'Front-end Developer' },
+        { label: 'Client', value: 'Sixt' },
+        { label: 'Year', value: '2021 – 2023' },
+        { label: 'Role', value: 'Software Development Engineer III' },
       ],
       links: [
         {
@@ -53,15 +55,16 @@ export const projectsConfig: ProjectsConfig = {
       useProjectCard: false,
     },
     {
-      id: 'ecommerce-product-page',
-      imageSrc: IMAGES.projects.ecommerce,
-      imageAlt: 'E-commerce product page',
-      tag: 'Challenge',
-      title: 'E-commerce product page',
-      description: 'Successfully crafted an engaging product page featuring a dynamic lightbox gallery and seamless cart functionality, showcasing proficiency in JavaScript development.',
+      id: 'lowes-search-plp',
+      imageSrc: IMAGES.projects.lowes,
+      imageAlt: "Lowe's search and product listing",
+      tag: 'E-commerce',
+      title: "Lowe's search & product listing (lowes.com)",
+      description: "Led front-end for lowes.com search and product listing. Implemented isomorphic architecture and SSR with Node.js BFF. Improved web vitals and observability, optimizing GCP cloud costs.",
       info: [
-        { label: 'Year', value: '2022' },
-        { label: 'Role', value: 'Front-end Developer' },
+        { label: 'Client', value: "Lowe's" },
+        { label: 'Year', value: '2020 – 2021' },
+        { label: 'Role', value: 'Lead Software Engineer' },
       ],
       links: [
         {

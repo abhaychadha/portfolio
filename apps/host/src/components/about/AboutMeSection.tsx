@@ -4,19 +4,27 @@ import { FC } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { aboutConfig, IMAGES } from "@portfolio/content";
+import { useComponentFlags } from "@/providers/FeatureFlagsProvider";
 
 const AboutMeSection: FC = () => {
   const { title, headline, description, ctaLabel, ctaHref } = aboutConfig;
+  const flags = useComponentFlags('AboutMeSection');
+  const aboutAnimation = flags.animation ?? true;
+  const showCtaLink = flags.ctaLink ?? true;
+
+  const Wrapper = aboutAnimation ? motion.div : 'div';
+  const motionProps = aboutAnimation
+    ? {
+        initial: { opacity: 0, y: 40 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
+        transition: { duration: 0.8 },
+      }
+    : {};
 
   return (
     <div className="max-w-[1440px] mx-auto px-[60px] py-[80px]">
-      <motion.div 
-        className="flex gap-[24px] items-start"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
+      <Wrapper className="flex gap-[24px] items-start" {...motionProps}>
         <p className="font-bebas leading-[0.9] text-[101px] text-foreground flex-shrink-0 w-[544px]" data-node-id="7:226">
           {title}
         </p>
@@ -29,16 +37,18 @@ const AboutMeSection: FC = () => {
               {description}
             </p>
           </div>
-          <a href={ctaHref} className="flex flex-col gap-[4px] items-start mt-[32px] transition-transform hover:scale-105" data-name="view project" data-node-id="7:231">
-            <p className="font-manrope font-bold leading-[1.5] text-primary text-[16px] uppercase" data-node-id="7:232">
-              {ctaLabel}
-            </p>
-            <div className="h-0 relative w-full" data-name="underline" data-node-id="7:233">
-              <Image src={IMAGES.decorative.underline4} alt="" width={200} height={2} className="w-full h-auto" />
-            </div>
-          </a>
+          {showCtaLink && (
+            <a href={ctaHref} className="flex flex-col gap-[4px] items-start mt-[32px] transition-transform hover:scale-105" data-name="view project" data-node-id="7:231">
+              <p className="font-manrope font-bold leading-[1.5] text-primary text-[16px] uppercase" data-node-id="7:232">
+                {ctaLabel}
+              </p>
+              <div className="h-0 relative w-full" data-name="underline" data-node-id="7:233">
+                <Image src={IMAGES.decorative.underline4} alt="" width={200} height={2} className="w-full h-auto" />
+              </div>
+            </a>
+          )}
         </div>
-      </motion.div>
+      </Wrapper>
     </div>
   );
 };

@@ -59,7 +59,7 @@ describe('ThemeToggle', () => {
   });
 
   it('toggles between light and dark themes', async () => {
-    const { container } = render(
+    render(
       <ThemeProvider>
         <ThemeToggle />
       </ThemeProvider>

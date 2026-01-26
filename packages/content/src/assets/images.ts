@@ -6,14 +6,14 @@
 export const IMAGES = {
   // Hero section
   hero: {
-    portrait: '/assets/images/hero/portrait.png',
+    portrait: '/assets/images/hero/portrait.jpeg',
   },
   
-  // Projects
+  // Projects (screenshots: Walmart, Sixt, Lowes)
   projects: {
-    adventureTime: '/assets/images/projects/work.png',
-    worldNews: '/assets/images/projects/image10.png',
-    ecommerce: '/assets/images/projects/image9.png',
+    walmart: '/assets/images/projects/walmart.png',
+    sixt: '/assets/images/projects/sixt.png',
+    lowes: '/assets/images/projects/lowes.png',
   },
   
   // Decorative elements

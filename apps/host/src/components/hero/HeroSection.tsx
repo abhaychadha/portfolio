@@ -4,19 +4,39 @@ import { FC } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { heroConfig, ICONS } from "@portfolio/content";
+import { useComponentFlags } from "@/providers/FeatureFlagsProvider";
 
 const HeroSection: FC = () => {
   const { greeting, name, tagline, primaryCta, socialLinks, portraitImage } = heroConfig;
+  const flags = useComponentFlags('HeroSection');
+  const heroAnimation = flags.animation ?? true;
+  const heroSocialLinks = flags.socialLinks ?? true;
+  const showPrimaryCta = flags.primaryCta ?? true;
+  const showPortrait = flags.portrait ?? true;
+
+  const contentClass = "flex flex-col gap-[40px] items-start flex-1 max-w-[544px]";
+  const portraitClass = "flex-shrink-0 w-[600px]";
+  const motionPropsLeft = {
+    initial: { opacity: 0, x: -50 } as const,
+    animate: { opacity: 1, x: 0 } as const,
+    transition: { duration: 0.8 },
+  };
+  const motionPropsRight = {
+    initial: { opacity: 0, x: 50 } as const,
+    animate: { opacity: 1, x: 0 } as const,
+    transition: { duration: 0.8, delay: 0.2 },
+  };
+
+  const ContentWrapper = heroAnimation ? motion.div : 'div';
+  const PortraitWrapper = heroAnimation ? motion.div : 'div';
 
   return (
     <div className="relative max-w-[1440px] mx-auto px-[60px] pt-[126px] pb-[80px]">
       <div className="flex gap-[80px] items-center">
-        <motion.div 
-          className="flex flex-col gap-[40px] items-start flex-1 max-w-[544px]"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          data-name="hero content" 
+        <ContentWrapper
+          className={contentClass}
+          {...(heroAnimation ? motionPropsLeft : {})}
+          data-name="hero content"
           data-node-id="7:61"
         >
           <div className="flex flex-col gap-[8px] items-start w-full" data-name="header and sub header" data-node-id="7:62">
@@ -29,49 +49,52 @@ const HeroSection: FC = () => {
             </p>
           </div>
           <div className="flex gap-[16px] items-center" data-name="action" data-node-id="7:65">
-            <a 
-              href={primaryCta.action}
-              className="bg-primary flex gap-[12px] h-[54px] items-center justify-center pl-[24px] pr-[6px] py-[20px] rounded-[100px] transition-transform hover:scale-105" 
-              data-name="button" 
-              data-node-id="7:66"
-            >
-              <p className="font-manrope font-bold leading-none text-neutral-black text-[16px] uppercase">
-                {primaryCta.label}
-              </p>
-              <div className="relative size-[42px]" data-name="circle" data-node-id="7:66">
-                <Image src={ICONS.ui.circle} alt="" width={42} height={42} />
-              </div>
-            </a>
-            {socialLinks.map((social) => (
+            {showPrimaryCta && (
               <a 
-                key={social.platform}
-                href={social.href}
-                className="bg-neutral-gray flex items-center justify-center rounded-[100px] size-[54px] transition-transform hover:scale-110"
-                aria-label={social.ariaLabel}
+                href={primaryCta.action}
+                className="bg-primary flex gap-[12px] h-[54px] items-center justify-center pl-[24px] pr-[6px] py-[20px] rounded-[100px] transition-transform hover:scale-105" 
+                data-name="button" 
+                data-node-id="7:66"
               >
-                <Image src={social.icon} alt={social.ariaLabel} width={26} height={26} />
+                <p className="font-manrope font-bold leading-none text-neutral-black text-[16px] uppercase">
+                  {primaryCta.label}
+                </p>
+                <div className="relative size-[42px]" data-name="circle" data-node-id="7:66">
+                  <Image src={ICONS.ui.circle} alt="" width={42} height={42} />
+                </div>
               </a>
-            ))}
+            )}
+            {heroSocialLinks &&
+              socialLinks.map((social) => (
+                <a 
+                  key={social.platform}
+                  href={social.href}
+                  className="bg-neutral-gray flex items-center justify-center rounded-[100px] size-[54px] transition-transform hover:scale-110"
+                  aria-label={social.ariaLabel}
+                >
+                  <Image src={social.icon} alt={social.ariaLabel} width={26} height={26} />
+                </a>
+              ))}
           </div>
-        </motion.div>
-          
-        <motion.div 
-          className="flex-shrink-0 w-[600px]"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="relative bg-neutral-offwhite h-[700px] rounded-[16px] overflow-hidden" data-name="bg" data-node-id="7:59">
-            <Image
-              src={portraitImage.src}
-              alt={portraitImage.alt}
-              fill
-              className="object-cover"
-              sizes="600px"
-              priority
-            />
-          </div>
-        </motion.div>
+        </ContentWrapper>
+
+        {showPortrait && (
+          <PortraitWrapper
+            className={portraitClass}
+            {...(heroAnimation ? motionPropsRight : {})}
+          >
+            <div className="relative bg-neutral-offwhite h-[700px] rounded-[16px] overflow-hidden" data-name="bg" data-node-id="7:59">
+              <Image
+                src={portraitImage.src}
+                alt={portraitImage.alt}
+                fill
+                className="object-cover"
+                sizes="600px"
+                priority
+              />
+            </div>
+          </PortraitWrapper>
+        )}
       </div>
     </div>
   );

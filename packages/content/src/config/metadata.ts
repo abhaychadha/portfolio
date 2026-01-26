@@ -1,11 +1,11 @@
 import { SiteMetadata } from '../types';
 
 export const siteMetadata: SiteMetadata = {
-  title: 'Robert Garcia - Front-end Developer',
-  description: 'A Sydney based front-end developer passionate about building accessible and user friendly websites',
+  title: 'Abhay Chadha - Staff Software Engineer',
+  description: 'Staff Software Engineer in Bengaluru. 15+ years building scalable B2C web apps with JavaScript, micro-frontends, and cloud-native platforms.',
   author: {
-    name: 'Robert Garcia',
-    email: 'robertgarcia@gmail.com',
-    location: 'Sydney, Australia',
+    name: 'Abhay Chadha',
+    email: 'abhay.chadha48@gmail.com',
+    location: 'Bengaluru, India',
   },
 };
