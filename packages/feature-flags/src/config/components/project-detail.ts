@@ -3,5 +3,5 @@ export const projectDetail = {
   component: 'ProjectDetail' as const,
   page: 'projects' as const,
   useCases: ['links', 'tag', 'image'] as const,
-  defaults: { links: true, tag: true, image: true },
+  defaults: { links: false, tag: true, image: true },
 };

@@ -3,10 +3,19 @@ import { render, screen } from '@testing-library/react';
 import FeaturedProjectsSection from '../FeaturedProjectsSection';
 import { FeatureFlagsProvider } from '@/providers/FeatureFlagsProvider';
 
-// Mock framer-motion
+// Mock framer-motion - strip animation props to avoid React DOM warnings
 jest.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: React.ComponentProps<'div'>) => <div {...props}>{children}</div>,
+    div: ({
+      children,
+      initial,
+      animate,
+      exit,
+      transition,
+      whileInView,
+      viewport,
+      ...props
+    }: React.ComponentProps<'div'> & Record<string, unknown>) => <div {...props}>{children}</div>,
   },
   useScroll: () => ({ scrollYProgress: 0 }),
   useTransform: () => 0,

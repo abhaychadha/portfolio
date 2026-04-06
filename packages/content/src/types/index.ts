@@ -39,7 +39,6 @@ export interface ProjectData {
   tag?: string;
   info: InfoItem[];
   links: LinkItem[];
-  useProjectCard?: boolean;
 }
 
 export interface NavigationConfig {

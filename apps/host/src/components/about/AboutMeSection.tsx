@@ -42,8 +42,8 @@ const AboutMeSection: FC = () => {
               <p className="font-manrope font-bold leading-[1.5] text-primary text-sm sm:text-[16px] uppercase" data-node-id="7:232">
                 {ctaLabel}
               </p>
-              <div className="h-0 relative w-full" data-name="underline" data-node-id="7:233">
-                <Image src={IMAGES.decorative.underline4} alt="" width={200} height={2} className="w-full h-auto max-w-[200px]" />
+              <div className="relative w-full h-[2px]" data-name="underline" data-node-id="7:233">
+                <Image src={IMAGES.decorative.underline4} alt="" width={200} height={2} className="block w-full h-full max-w-[200px]" />
               </div>
             </a>
           )}

@@ -3,7 +3,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { useComponentFlags } from "@/providers/FeatureFlagsProvider";
-import ProjectCard from "./ProjectCard";
+import { ProjectCard } from "@portfolio/ui";
 
 export type ProjectInfoItem = {
   label: string;
@@ -26,7 +26,6 @@ export type ProjectDetailProps = {
   description: string;
   info: ProjectInfoItem[];
   links: ProjectLink[];
-  useProjectCard?: boolean;
 };
 
 const ProjectDetail: FC<ProjectDetailProps> = ({
@@ -38,7 +37,6 @@ const ProjectDetail: FC<ProjectDetailProps> = ({
   description,
   info,
   links,
-  useProjectCard = false,
 }) => {
   const flags = useComponentFlags('ProjectDetail');
   const showImage = flags.image ?? true;
@@ -47,32 +45,9 @@ const ProjectDetail: FC<ProjectDetailProps> = ({
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-[48px] items-start lg:items-center w-full max-w-full min-w-0" data-name="project" data-node-id="7:85">
-      {showImage && (useProjectCard && image ? (
-        <ProjectCard image={image} tag={showTag ? tag : undefined} className="w-full max-w-full lg:max-w-[500px] xl:max-w-[600px] lg:shrink-0" />
-      ) : (
-        <div className="bg-neutral-gray relative rounded-[10px] sm:rounded-[12px] w-full max-w-full lg:max-w-[500px] xl:max-w-[600px] lg:shrink-0 aspect-square lg:aspect-auto lg:h-[500px] xl:h-[600px] min-h-[240px] sm:min-h-[280px]" data-name="project image" data-node-id="7:118">
-          <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 md:p-[56px]" data-name="image container" data-node-id="7:119">
-            <div className="relative w-full h-full">
-              {imageSrc && (
-                <Image
-                  src={imageSrc}
-                  alt={imageAlt || title}
-                  fill
-                  className="object-contain rounded-[10px] sm:rounded-[12px]"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 500px, 600px"
-                />
-              )}
-            </div>
-          </div>
-          {showTag && tag && (
-            <div className="absolute bg-background flex items-center justify-center left-3 sm:left-[16px] px-3 sm:px-[16px] py-1.5 sm:py-[8px] rounded-[100px] top-3 sm:top-[16px] z-10" data-node-id="7:146">
-              <p className="font-manrope font-medium leading-[1.5] text-xs sm:text-[14px] text-foreground" data-node-id="7:147">
-                {tag}
-              </p>
-            </div>
-          )}
-        </div>
-      ))}
+      {showImage && (image || imageSrc) && (
+        <ProjectCard image={image} imageSrc={imageSrc} imageAlt={imageAlt} tag={showTag ? tag : undefined} className="w-full max-w-full lg:max-w-[500px] xl:max-w-[600px] lg:shrink-0" />
+      )}
       
       <div className="flex-1 flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-[48px] items-start w-full min-w-0" data-name="project content" data-node-id="7:87">
         <div className="flex flex-col gap-4 sm:gap-6 md:gap-[32px] items-start w-full" data-name="information" data-node-id="7:88">
@@ -109,8 +84,8 @@ const ProjectDetail: FC<ProjectDetailProps> = ({
                   {link.icon && <Image src={link.icon} alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" data-name="arrow" data-node-id={`7:${108 + index}`} />}
                 </div>
                 {link.underline && (
-                  <div className="h-0 relative w-full" data-name="underline" data-node-id={`7:${110 + index}`}>
-                    <Image src={link.underline} alt="" width={200} height={2} className="w-full h-auto max-w-[180px] sm:max-w-[200px]" />
+                  <div className="relative w-full h-[2px]" data-name="underline" data-node-id={`7:${110 + index}`}>
+                    <Image src={link.underline} alt="" width={200} height={2} className="block w-full h-full max-w-[180px] sm:max-w-[200px]" />
                   </div>
                 )}
               </a>

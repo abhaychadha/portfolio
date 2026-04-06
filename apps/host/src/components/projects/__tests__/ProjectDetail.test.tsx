@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import ProjectDetail from '../ProjectDetail';
 import type { ProjectDetailProps } from '../ProjectDetail';
 import { FeatureFlagsProvider } from '@/providers/FeatureFlagsProvider';
+import { ICONS } from '@portfolio/content';
 
 const mockProps: ProjectDetailProps = {
   title: 'Test Project',
@@ -11,7 +12,7 @@ const mockProps: ProjectDetailProps = {
     { label: 'Role', value: 'Developer' },
   ],
   links: [
-    { label: 'Live Demo', href: '#', icon: '/arrow.svg' },
+    { label: 'Live Demo', href: '#', icon: ICONS.ui.arrow },
   ],
 };
 
@@ -43,19 +44,18 @@ describe('ProjectDetail', () => {
     expect(link.closest('a')).toHaveAttribute('href', '#');
   });
 
-  it('uses ProjectCard when useProjectCard is true', () => {
-    render(wrapper({ image: '/test.png', useProjectCard: true }));
+  it('renders ProjectCard when image is provided', () => {
+    render(wrapper({ image: '/test.png' }));
     expect(screen.getByAltText('Project')).toBeInTheDocument();
   });
 
-  it('renders custom image when useProjectCard is false', () => {
+  it('renders ProjectCard with imageSrc and imageAlt', () => {
     render(wrapper({ imageSrc: '/custom.png', imageAlt: 'Custom Image' }));
-    const image = screen.getByAltText('Custom Image');
-    expect(image).toBeInTheDocument();
+    expect(screen.getByAltText('Custom Image')).toBeInTheDocument();
   });
 
   it('renders tag when provided', () => {
-    render(wrapper({ tag: 'Challenge' }));
+    render(wrapper({ image: '/test.png', tag: 'Challenge' }));
     expect(screen.getByText('Challenge')).toBeInTheDocument();
   });
 });

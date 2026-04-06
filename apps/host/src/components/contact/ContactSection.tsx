@@ -31,8 +31,8 @@ const ContactSection: FC = () => {
                     <a href={`mailto:${email.value}`} className="font-manrope font-normal leading-[1.5] text-base sm:text-[18px] text-foreground hover:text-primary transition-colors break-all" data-node-id="7:184">
                       {email.value}
                     </a>
-                    <div className="h-0 relative w-full" data-name="underline" data-node-id="7:185">
-                      <Image src={IMAGES.decorative.underline3} alt="" width={200} height={2} className="w-full h-auto max-w-[200px]" />
+                    <div className="relative w-full h-[2px]" data-name="underline" data-node-id="7:185">
+                      <Image src={IMAGES.decorative.underline3} alt="" width={200} height={2} className="block w-full h-full max-w-[200px]" />
                     </div>
                   </div>
                 </div>
@@ -46,8 +46,8 @@ const ContactSection: FC = () => {
                     <a href={resume.href} className="font-manrope font-normal leading-[1.5] text-base sm:text-[18px] text-foreground hover:text-primary transition-colors" data-node-id="7:189">
                       resume
                     </a>
-                    <div className="h-0 relative w-full" data-node-id="7:190">
-                      <Image src={IMAGES.decorative.line7} alt="" width={200} height={2} className="w-full h-auto max-w-[200px]" />
+                    <div className="relative w-full h-[2px]" data-node-id="7:190">
+                      <Image src={IMAGES.decorative.line7} alt="" width={200} height={2} className="block w-full h-full max-w-[200px]" />
                     </div>
                   </div>
                 </div>

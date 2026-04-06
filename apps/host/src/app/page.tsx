@@ -4,7 +4,8 @@ import { FC, useEffect } from "react";
 import { useAppFeatures } from "@/providers/FeatureFlagsProvider";
 import Navigation from "@/components/navigation/Navigation";
 import HeroSection from "@/components/hero/HeroSection";
-import Line from "@/components/common/Line";
+import { IMAGES } from "@portfolio/content";
+import { Line } from "@portfolio/ui";
 import FeaturedProjectsSection from "@/components/projects/FeaturedProjectsSection";
 import AboutMeSection from "@/components/about/AboutMeSection";
 import ContactSection from "@/components/contact/ContactSection";
@@ -26,7 +27,7 @@ const Home: FC = () => {
 
       {sectionSeparators && (
         <div className="h-[1px] w-full">
-          <Line />
+          <Line src={IMAGES.decorative.line4} />
         </div>
       )}
 
@@ -34,7 +35,7 @@ const Home: FC = () => {
 
       {sectionSeparators && (
         <div className="h-[1px] w-full">
-          <Line />
+          <Line src={IMAGES.decorative.line4} />
         </div>
       )}
 
@@ -42,7 +43,7 @@ const Home: FC = () => {
 
       {sectionSeparators && (
         <div className="h-[1px] w-full">
-          <Line />
+          <Line src={IMAGES.decorative.line4} />
         </div>
       )}
 

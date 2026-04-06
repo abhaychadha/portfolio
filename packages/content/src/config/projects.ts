@@ -14,7 +14,7 @@ export const projectsConfig: ProjectsConfig = {
       info: [
         { label: 'Year', value: '2023 – Present' },
         { label: 'Role', value: 'Staff Software Engineer' },
-        { label: 'Client', value: 'Walmart' },
+        { label: 'Organisation', value: 'Walmart' },
       ],
       links: [
         {
@@ -30,7 +30,6 @@ export const projectsConfig: ProjectsConfig = {
           underline: IMAGES.decorative.underline1,
         },
       ],
-      useProjectCard: true,
     },
     {
       id: 'sixt-mobile-checkin-microfrontends',
@@ -40,7 +39,7 @@ export const projectsConfig: ProjectsConfig = {
       title: 'Sixt mobile check-in & micro-frontend platform',
       description: "Spearheaded documentation and mobile check-in platform; built web check-in from scratch (15% fewer counter pickups). Introduced micro-frontend architecture on sixt.com post-purchase flows. Drove 20% conversion improvement via performance and A/B testing.",
       info: [
-        { label: 'Client', value: 'Sixt' },
+        { label: 'Organisation', value: 'Sixt' },
         { label: 'Year', value: '2021 – 2023' },
         { label: 'Role', value: 'Software Development Engineer III' },
       ],
@@ -52,7 +51,6 @@ export const projectsConfig: ProjectsConfig = {
           underline: IMAGES.decorative.underline2,
         },
       ],
-      useProjectCard: false,
     },
     {
       id: 'lowes-search-plp',
@@ -62,7 +60,7 @@ export const projectsConfig: ProjectsConfig = {
       title: "Lowe's search & product listing (lowes.com)",
       description: "Led front-end for lowes.com search and product listing. Implemented isomorphic architecture and SSR with Node.js BFF. Improved web vitals and observability, optimizing GCP cloud costs.",
       info: [
-        { label: 'Client', value: "Lowe's" },
+        { label: 'Organisation', value: "Lowe's" },
         { label: 'Year', value: '2020 – 2021' },
         { label: 'Role', value: 'Lead Software Engineer' },
       ],
@@ -80,7 +78,6 @@ export const projectsConfig: ProjectsConfig = {
           underline: IMAGES.decorative.underline1,
         },
       ],
-      useProjectCard: false,
     },
   ],
 };

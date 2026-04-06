@@ -1,3 +1,22 @@
+import underline from './decorative/underline.svg';
+import underline1 from './decorative/underline1.svg';
+import underline2 from './decorative/underline2.svg';
+import underline3 from './decorative/underline3.svg';
+import underline4 from './decorative/underline4.svg';
+import line4 from './decorative/line-4.svg';
+import line7 from './decorative/line7.svg';
+import linkedin from './icons/social/linkedin.svg';
+import linkedinLarge from './icons/social/linkedin-large.svg';
+import github from './icons/social/github.svg';
+import githubLarge from './icons/social/github-large.svg';
+import twitter from './icons/social/group.svg';
+import instagram from './icons/social/instagram.svg';
+import circle from './icons/ui/circle.svg';
+import arrow from './icons/ui/arrow.svg';
+import file from './icons/general/file.svg';
+import window from './icons/general/window.svg';
+import globe from './icons/general/globe.svg';
+
 /**
  * Centralized image asset paths
  * Organized by feature/domain for easy management
@@ -18,38 +37,38 @@ export const IMAGES = {
   
   // Decorative elements
   decorative: {
-    underline: '/assets/images/decorative/underline.svg',
-    underline1: '/assets/images/decorative/underline1.svg',
-    underline2: '/assets/images/decorative/underline2.svg',
-    underline3: '/assets/images/decorative/underline3.svg',
-    underline4: '/assets/images/decorative/underline4.svg',
-    line4: '/assets/images/decorative/line-4.svg',
-    line7: '/assets/images/decorative/line7.svg',
+    underline,
+    underline1,
+    underline2,
+    underline3,
+    underline4,
+    line4,
+    line7,
   },
 } as const;
 
 export const ICONS = {
   // Social media
   social: {
-    linkedin: '/assets/icons/social/linkedin.svg',
-    linkedinLarge: '/assets/icons/social/linkedin-large.svg',
-    github: '/assets/icons/social/github.svg',
-    githubLarge: '/assets/icons/social/github-large.svg',
-    twitter: '/assets/icons/social/group.svg',
-    instagram: '/assets/icons/social/instagram.svg',
+    linkedin,
+    linkedinLarge,
+    github,
+    githubLarge,
+    twitter,
+    instagram,
   },
   
   // UI elements
   ui: {
-    circle: '/assets/icons/ui/circle.svg',
-    arrow: '/assets/icons/ui/arrow.svg',
+    circle,
+    arrow,
   },
   
   // General
   general: {
-    globe: '/assets/icons/general/globe.svg',
-    file: '/assets/icons/general/file.svg',
-    window: '/assets/icons/general/window.svg',
+    globe,
+    file,
+    window,
   },
 } as const;
 
