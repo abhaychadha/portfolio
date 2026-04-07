@@ -19,9 +19,8 @@ describe('Navigation', () => {
 
   it('renders navigation links', () => {
     render(wrapper);
-    expect(screen.getByText('Work')).toBeInTheDocument();
     expect(screen.getByText('About')).toBeInTheDocument();
-    expect(screen.getByText('Contact')).toBeInTheDocument();
+    expect(screen.getByText('Skills')).toBeInTheDocument();
   });
 
   it('renders theme toggle button', async () => {

@@ -24,7 +24,7 @@ const AboutMeSection: FC = () => {
     : {};
 
   return (
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[60px] py-12 sm:py-14 md:py-16 lg:py-20 xl:py-[80px]">
+    <div id="about" className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[60px] py-12 sm:py-14 md:py-16 lg:py-20 xl:py-[80px]">
       <Wrapper className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-[24px] items-start" {...motionProps}>
         <Heading className="leading-[0.9] xl:text-8xl 2xl:text-[101px] shrink-0 w-full lg:w-[544px] min-w-0" data-node-id="7:226">
           {title}

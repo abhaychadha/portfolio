@@ -10,11 +10,11 @@
   "scripts": {
     "dev": "concurrently \"npm:dev:*\"",
     "dev:host": "npm run dev --workspace=host",
-    "dev:remote-about": "npm run dev --workspace=remote-about",
+    "dev:remote-skills": "npm run dev --workspace=remote-skills",
     "dev:remote-projects": "npm run dev --workspace=remote-projects",
     "build": "npm run build --workspaces --if-present",
     "build:host": "npm run build --workspace=host",
-    "build:remote-about": "npm run build --workspace=remote-about",
+    "build:remote-skills": "npm run build --workspace=remote-skills",
     "build:remote-projects": "npm run build --workspace=remote-projects",
     "build:packages": "npm run build --workspace=@portfolio/ui --workspace=@portfolio/types --workspace=@portfolio/utils",
     "lint": "npm run lint --workspaces --if-present",

@@ -3,7 +3,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { contactConfig, IMAGES } from "@portfolio/content";
-import { Button, MetaText, Paragraph, SectionHeader } from "@portfolio/ui";
+import { MetaText, Paragraph, SectionHeader } from "@portfolio/ui";
 import { useComponentFlags } from "@/providers/FeatureFlagsProvider";
 
 const ContactSection: FC = () => {
@@ -15,7 +15,7 @@ const ContactSection: FC = () => {
   const showSocialLinks = flags.socialLinks ?? true;
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 md:gap-12 lg:gap-[24px] items-start max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[60px] py-12 sm:py-14 md:py-16 lg:py-20 xl:py-[80px]" data-node-id="7:175">
+    <div id="contact" className="flex flex-col lg:flex-row gap-8 sm:gap-10 md:gap-12 lg:gap-[24px] items-start max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[60px] py-12 sm:py-14 md:py-16 lg:py-20 xl:py-[80px]" data-node-id="7:175">
       <div className="flex-1 flex flex-col items-start justify-between gap-6 sm:gap-8 lg:gap-0 min-h-0 lg:min-h-full w-full min-w-0" data-node-id="7:176">
         <div className="flex flex-col gap-6 sm:gap-8 md:gap-[40px] items-start w-full" data-node-id="7:177">
           <div className="flex flex-col gap-3 sm:gap-4 md:gap-[16px] items-start w-full" data-node-id="7:178">
@@ -98,9 +98,11 @@ const ContactSection: FC = () => {
                 </div>
               ))}
             </div>
-            <Button fullWidth data-name="button" data-node-id="7:224">
-              {form.submitLabel}
-            </Button>
+            <button type="button" className="bg-primary flex h-12 sm:h-[54px] items-center justify-center px-6 sm:px-8 md:px-[40px] py-4 sm:py-5 rounded-[100px] w-full sm:w-auto transition-transform hover:scale-105" data-name="button" data-node-id="7:224">
+              <p className="font-manrope font-bold leading-none text-neutral-black text-sm sm:text-[16px] uppercase" data-node-id="7:225">
+                {form.submitLabel}
+              </p>
+            </button>
           </div>
         </div>
       )}

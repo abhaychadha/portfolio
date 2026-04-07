@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
@@ -30,6 +30,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "baseline-browser-mapping": "^2.10.16",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "jest": "^30.2.0",
@@ -37,6 +38,7 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.4.6",
-    "typescript": "^5"
+    "typescript": "^5",
+    "webpack": "^5.105.4"
   }
 }

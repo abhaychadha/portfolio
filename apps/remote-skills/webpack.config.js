@@ -41,10 +41,10 @@ module.exports = () => ({
   },
   plugins: [
     new container.ModuleFederationPlugin({
-      name: 'about',
+      name: 'skills',
       filename: 'remoteEntry.js',
       exposes: {
-        './AboutSection': './src/RemoteAbout'
+        './SkillsSection': './src/RemoteSkills'
       },
       shared: {
         react: {

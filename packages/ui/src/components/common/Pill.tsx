@@ -8,7 +8,7 @@ export type PillProps = {
 const Pill: FC<PillProps> = ({ children, className }) => {
   return (
     <span
-      className={`rounded-[100px] border border-neutral-dark-gray bg-neutral-gray px-3 py-1 font-manrope text-xs font-medium text-foreground sm:text-sm ${className ?? ""}`.trim()}
+      className={`rounded-[100px] border border-primary bg-primary px-3 py-1.5 sm:py-2 font-manrope text-xs font-bold uppercase leading-[1.2] text-neutral-black sm:text-sm ${className ?? ""}`.trim()}
     >
       {children}
     </span>

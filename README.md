@@ -21,7 +21,7 @@ A modern portfolio application built with **Module Federation** using a micro-fr
 This repository is organized as a workspace monorepo:
 
 - **Host App (`apps/host`)**: Next.js 15 portfolio shell used in production
-- **Remote About (`apps/remote-about`)**: Webpack Module Federation remote for About experiments
+- **Remote Skills (`apps/remote-skills`)**: Webpack Module Federation remote for Skills experiments
 - **Remote Projects (`apps/remote-projects`)**: Webpack Module Federation remote for Projects experiments
 - **Shared Packages (`packages/*`)**:
   - `@portfolio/ui` for reusable UI (Line, Pill, Button, typography)
@@ -111,7 +111,7 @@ Portfolio/
 │   │   ├── public/                # Host-only static assets (e.g. resume)
 │   │   ├── next.config.ts         # transpilePackages for workspace packages
 │   │   └── package.json
-│   ├── remote-about/              # Module Federation remote
+│   ├── remote-skills/             # Module Federation remote
 │   └── remote-projects/           # Module Federation remote
 ├── packages/
 │   ├── content/                   # Centralized content config + asset map
@@ -170,7 +170,7 @@ npm run dev
 ```
 
 This will start all three applications in parallel with color-coded output:
-- 🟢 Remote About on port 4001
+- 🟢 Remote Skills on port 4001
 - 🔵 Remote Projects on port 4002
 - 🟣 Host Application on port 3000
 
@@ -178,9 +178,9 @@ This will start all three applications in parallel with color-coded output:
 
 If you prefer to run applications separately or need more control, you can start them in separate terminal windows/tabs:
 
-**Terminal 1: Start Remote About (Port 4001)**
+**Terminal 1: Start Remote Skills (Port 4001)**
 ```bash
-cd apps/remote-about
+cd apps/remote-skills
 npm run dev
 ```
 
@@ -198,7 +198,7 @@ npm run dev
 
 Or use the individual scripts from the root:
 ```bash
-npm run dev:remote-about    # Start remote about only
+npm run dev:remote-skills   # Start remote skills only
 npm run dev:remote-projects # Start remote projects only
 npm run dev:host            # Start host only
 ```
@@ -213,7 +213,7 @@ npm run dev:host            # Start host only
 ### Development URLs
 
 - Host Application: http://localhost:3000
-- Remote About: http://localhost:4001
+- Remote Skills: http://localhost:4001
 - Remote Projects: http://localhost:4002
 
 ### Available Scripts
@@ -224,11 +224,11 @@ From the root directory, you can run:
 |--------|-------------|
 | `npm run dev` | Start all applications in parallel |
 | `npm run dev:host` | Start only the host application |
-| `npm run dev:remote-about` | Start only the remote-about app |
+| `npm run dev:remote-skills` | Start only the remote-skills app |
 | `npm run dev:remote-projects` | Start only the remote-projects app |
 | `npm run build` | Build all applications (remotes + host) |
 | `npm run build:host` | Build only the host application |
-| `npm run build:remote-about` | Build only the remote-about app |
+| `npm run build:remote-skills` | Build only the remote-skills app |
 | `npm run build:remote-projects` | Build only the remote-projects app |
 | `npm run build:packages` | Build shared packages with build scripts |
 | `npm run lint` | Run lint across workspaces (if present) |
@@ -245,7 +245,7 @@ From the root directory, you can run:
 
 Each remote application uses `webpack.container.ModuleFederationPlugin` to expose components:
 
-**remote-about/webpack.config.js:**
+**remote-skills/webpack.config.js:**
 ```javascript
 new container.ModuleFederationPlugin({
   name: 'about',                          // Federation name
@@ -344,14 +344,14 @@ This will build remotes first, then the host application.
 npm run build:remotes
 ```
 
-**Build Remote About only:**
+**Build Remote Skills only:**
 ```bash
-npm run build:remote-about
+npm run build:remote-skills
 # or
-cd apps/remote-about && npm run build
+cd apps/remote-skills && npm run build
 ```
 
-Output will be in `apps/remote-about/dist/`
+Output will be in `apps/remote-skills/dist/`
 
 **Build Remote Projects only:**
 ```bash
@@ -384,7 +384,7 @@ Output will be in `apps/host/.next/`
 
 Each application can be deployed independently:
 
-### Remote About Deployment
+### Remote Skills Deployment
 
 Deploy the `dist/` folder to a static host or web server. Ensure:
 - `remoteEntry.js` is accessible

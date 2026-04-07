@@ -1,21 +1,24 @@
 import { render, screen } from '@testing-library/react';
-import ProjectCard from '../ProjectCard';
+import { ProjectCard } from '@portfolio/ui';
 
 describe('ProjectCard', () => {
   const defaultProps = {
+    title: 'Walmart Plus & Sam\'s Club membership platform',
+    description: 'Led modernization of membership platforms.',
+    imageSrc: '/assets/images/projects/walmart.png',
+    imageAlt: 'Walmart project',
     role: 'Staff Software Engineer',
     company: 'Walmart',
     duration: '2023 - Present',
     location: 'Bengaluru, India',
-    summary: 'Built scalable membership platform',
     achievements: ['Improved conversion', 'Reduced latency'],
     technologies: ['React', 'Next.js'],
   };
 
   it('renders the project card component', () => {
     render(<ProjectCard {...defaultProps} />);
-    expect(screen.getByText('Staff Software Engineer')).toBeInTheDocument();
-    expect(screen.getByText('Walmart')).toBeInTheDocument();
+    expect(screen.getByText('Walmart Plus & Sam\'s Club membership platform')).toBeInTheDocument();
+    expect(screen.getAllByText('Walmart').length).toBeGreaterThan(0);
   });
 
   it('applies custom className', () => {

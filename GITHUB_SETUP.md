@@ -6,7 +6,7 @@ This guide is for pushing and maintaining the current **workspace monorepo** on 
 
 Current architecture includes:
 - `apps/host` (Next.js host shell)
-- `apps/remote-about`, `apps/remote-projects` (Module Federation remotes)
+- `apps/remote-skills`, `apps/remote-projects` (Module Federation remotes)
 - shared packages under `packages/*`:
   - `@portfolio/ui` (shared components + typography + button + pill + line)
   - `@portfolio/content` (content config + centralized asset mapping)
@@ -153,7 +153,7 @@ Your repository includes:
 
 ### Applications:
 - ✅ `apps/host` - Main Next.js application
-- ✅ `apps/remote-about` - About micro-frontend
+- ✅ `apps/remote-skills` - Skills micro-frontend
 - ✅ `apps/remote-projects` - Projects micro-frontend
 
 ### Packages:

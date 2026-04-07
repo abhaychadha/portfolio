@@ -22,7 +22,7 @@ portfolio-monorepo/
 │   │   └── src/
 │   │       └── app/
 │   │
-│   ├── remote-about/               # About section micro-frontend
+│   ├── remote-skills/              # Skills section micro-frontend
 │   │   ├── package.json
 │   │   ├── webpack.config.js
 │   │   └── src/
@@ -86,7 +86,7 @@ portfolio-monorepo/
   - SEO and meta tags
   - Global state management (if needed)
 
-#### `apps/remote-about`
+#### `apps/remote-skills`
 - **Type**: Remote Micro-Frontend
 - **Purpose**: About section
 - **Exposes**: `./AboutSection`
@@ -241,7 +241,7 @@ module.exports = {
 ### Remote App Configuration
 
 ```javascript
-// apps/remote-about/webpack.config.js
+// apps/remote-skills/webpack.config.js
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 
 module.exports = {
@@ -281,7 +281,7 @@ module.exports = {
     "test": "turbo run test",
     "clean": "turbo run clean",
     "dev:host": "turbo run dev --filter=host",
-    "dev:about": "turbo run dev --filter=remote-about",
+    "dev:skills": "turbo run dev --filter=remote-skills",
     "dev:projects": "turbo run dev --filter=remote-projects"
   },
   "devDependencies": {

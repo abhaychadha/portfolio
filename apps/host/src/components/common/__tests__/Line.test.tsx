@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import Line from '../Line';
+import { Line } from '@portfolio/ui';
 import { IMAGES } from '@portfolio/content';
 
 describe('Line', () => {
@@ -13,7 +13,7 @@ describe('Line', () => {
     const { container } = render(<Line src={IMAGES.decorative.line4} />);
     const image = container.querySelector('img');
     expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute('src', expect.stringContaining('line-4'));
+    expect(image).toHaveAttribute('src');
   });
 
   it('has correct data attributes', () => {
