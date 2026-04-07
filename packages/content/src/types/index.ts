@@ -33,12 +33,16 @@ export interface ProjectData {
   id: string;
   title: string;
   description: string;
-  image?: string;
   imageSrc?: string;
   imageAlt?: string;
-  tag?: string;
-  info: InfoItem[];
-  links: LinkItem[];
+  role: string;
+  company: string;
+  duration: string;
+  location: string;
+  summary: string;
+  technologies: string[];
+  initials?: string;
+  achievements: string[];
 }
 
 export interface NavigationConfig {

@@ -2,6 +2,7 @@
 
 import { FC } from "react";
 import { navigationConfig } from "@portfolio/content";
+import { MetaText } from "@portfolio/ui";
 import { useComponentFlags } from "@/providers/FeatureFlagsProvider";
 import ThemeToggle from "@/components/common/ThemeToggle";
 
@@ -21,7 +22,7 @@ const Navigation: FC = () => {
           <div className="flex font-manrope font-medium gap-3 sm:gap-4 md:gap-6 lg:gap-[32px] items-center text-neutral-offwhite text-sm sm:text-base tracking-[-0.48px]" data-node-id="7:33">
             {links.map((link, index) => (
               <a key={index} href={link.href} className="leading-[1.5] hover:text-primary transition-colors whitespace-nowrap">
-                {link.label}
+                <MetaText className="text-inherit text-sm sm:text-base">{link.label}</MetaText>
               </a>
             ))}
           </div>

@@ -4,6 +4,7 @@ import { FC } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { heroConfig, ICONS } from "@portfolio/content";
+import { Button, Heading, Paragraph } from "@portfolio/ui";
 import { useComponentFlags } from "@/providers/FeatureFlagsProvider";
 
 const HeroSection: FC = () => {
@@ -40,29 +41,29 @@ const HeroSection: FC = () => {
           data-node-id="7:61"
         >
           <div className="flex flex-col gap-2 sm:gap-[8px] items-start w-full min-w-0" data-name="header and sub header" data-node-id="7:62">
-            <div className="font-bebas leading-[0.9] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[101px] text-foreground w-full" data-node-id="7:63">
+            <Heading className="leading-[0.9] xl:text-8xl 2xl:text-[101px] w-full" data-node-id="7:63">
               <p className="mb-0">{greeting}</p>
               <p>{name}</p>
-            </div>
-            <p className="font-manrope font-normal leading-[1.5] text-neutral-offwhite text-base sm:text-[18px] w-full" data-node-id="7:64">
+            </Heading>
+            <Paragraph className="w-full" data-node-id="7:64">
               {tagline}
-            </p>
+            </Paragraph>
           </div>
           <div className="flex gap-3 sm:gap-4 md:gap-[16px] items-center flex-wrap" data-name="action" data-node-id="7:65">
             {showPrimaryCta && (
-              <a 
+              <Button
                 href={primaryCta.action}
-                className="bg-primary flex gap-2 sm:gap-[12px] h-10 sm:h-12 md:h-[54px] items-center justify-center pl-4 sm:pl-6 md:pl-[24px] pr-2 sm:pr-[6px] py-3 sm:py-5 rounded-[100px] transition-transform hover:scale-105" 
-                data-name="button" 
+                size="md"
+                data-name="button"
                 data-node-id="7:66"
+                trailingIcon={
+                  <div className="relative size-8 sm:size-9 md:size-[42px]" data-name="circle" data-node-id="7:66">
+                    <Image src={ICONS.ui.circle} alt="" width={42} height={42} className="w-full h-full" />
+                  </div>
+                }
               >
-                <p className="font-manrope font-bold leading-none text-neutral-black text-sm sm:text-[16px] uppercase">
-                  {primaryCta.label}
-                </p>
-                <div className="relative size-8 sm:size-9 md:size-[42px]" data-name="circle" data-node-id="7:66">
-                  <Image src={ICONS.ui.circle} alt="" width={42} height={42} className="w-full h-full" />
-                </div>
-              </a>
+                {primaryCta.label}
+              </Button>
             )}
             {heroSocialLinks &&
               socialLinks.map((social) => (

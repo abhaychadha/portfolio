@@ -30,25 +30,24 @@ const wrapper = (
 describe('FeaturedProjectsSection', () => {
   it('renders the featured projects section', () => {
     render(wrapper);
-    expect(screen.getByText('Featured Projects')).toBeInTheDocument();
+    expect(screen.getByText('Work Experience')).toBeInTheDocument();
   });
 
   it('renders the section description', () => {
     render(wrapper);
-    expect(screen.getByText(/Selected initiatives from 15\+ years/)).toBeInTheDocument();
+    expect(screen.getByText(/A journey through innovation/)).toBeInTheDocument();
   });
 
   it('renders multiple projects', () => {
     render(wrapper);
-    expect(screen.getByText(/Walmart Plus & Sam's Club membership platform/)).toBeInTheDocument();
-    expect(screen.getByText(/Sixt mobile check-in & micro-frontend platform/)).toBeInTheDocument();
-    expect(screen.getByText(/Lowe's search & product listing/)).toBeInTheDocument();
+    expect(screen.getByText(/Staff Software Engineer/)).toBeInTheDocument();
+    expect(screen.getByText(/Software Development Engineer III/)).toBeInTheDocument();
+    expect(screen.getByText(/Lead Software Engineer/)).toBeInTheDocument();
   });
 
-  it('renders project links', () => {
+  it('renders key sections on cards', () => {
     render(wrapper);
-    expect(screen.getAllByText('Live Demo').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('See on Github').length).toBeGreaterThan(0);
-    expect(screen.getByText('View project')).toBeInTheDocument();
+    expect(screen.getAllByText('Key Achievements').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Technologies Used').length).toBeGreaterThan(0);
   });
 });

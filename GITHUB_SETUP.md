@@ -1,14 +1,17 @@
 # GitHub Setup Guide
 
-## ✅ Git Repository Initialized
+## ✅ Repository Status
 
-Your monorepo has been initialized and committed locally!
+This guide is for pushing and maintaining the current **workspace monorepo** on GitHub.
 
-**Commit Status**:
-- ✅ Repository initialized
-- ✅ All files staged
-- ✅ Initial commit created
-- ✅ 59 files committed (6041 insertions)
+Current architecture includes:
+- `apps/host` (Next.js host shell)
+- `apps/remote-about`, `apps/remote-projects` (Module Federation remotes)
+- shared packages under `packages/*`:
+  - `@portfolio/ui` (shared components + typography + button + pill + line)
+  - `@portfolio/content` (content config + centralized asset mapping)
+  - `@portfolio/feature-flags` (app/component toggles)
+  - `@portfolio/types`, `@portfolio/utils`
 
 ---
 
@@ -154,10 +157,11 @@ Your repository includes:
 - ✅ `apps/remote-projects` - Projects micro-frontend
 
 ### Packages:
-- ✅ `packages/ui` - Shared UI components
+- ✅ `packages/ui` - Shared UI primitives/components (typography, button, pill, line)
+- ✅ `packages/content` - Centralized content configuration and asset registry
+- ✅ `packages/feature-flags` - App + component feature flags
 - ✅ `packages/types` - Shared TypeScript types
 - ✅ `packages/utils` - Shared utilities
-- ✅ `packages/content` - Centralized content configuration
 
 ### Documentation:
 - ✅ Comprehensive README files
@@ -165,11 +169,11 @@ Your repository includes:
 - ✅ Setup and deployment guides
 
 ### Configuration:
-- ✅ Monorepo workspace setup
-- ✅ TypeScript configuration
-- ✅ ESLint and testing setup
-- ✅ Theme switching system
-- ✅ Content management system
+- ✅ npm workspace monorepo (`apps/*`, `packages/*`)
+- ✅ Next.js host transpilation for workspace packages
+- ✅ TypeScript, ESLint, Jest setup
+- ✅ Theme and feature-flag provider wiring in host
+- ✅ Centralized content + static asset ownership in `@portfolio/content`
 
 ---
 

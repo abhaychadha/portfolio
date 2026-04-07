@@ -3,22 +3,19 @@ import ProjectCard from '../ProjectCard';
 
 describe('ProjectCard', () => {
   const defaultProps = {
-    image: '/test-image.png',
+    role: 'Staff Software Engineer',
+    company: 'Walmart',
+    duration: '2023 - Present',
+    location: 'Bengaluru, India',
+    summary: 'Built scalable membership platform',
+    achievements: ['Improved conversion', 'Reduced latency'],
+    technologies: ['React', 'Next.js'],
   };
 
   it('renders the project card component', () => {
     render(<ProjectCard {...defaultProps} />);
-    expect(screen.getByAltText('Project')).toBeInTheDocument();
-  });
-
-  it('renders with optional tag', () => {
-    render(<ProjectCard {...defaultProps} tag="Test Tag" />);
-    expect(screen.getByText('Test Tag')).toBeInTheDocument();
-  });
-
-  it('does not render tag when not provided', () => {
-    render(<ProjectCard {...defaultProps} />);
-    expect(screen.queryByText('Test Tag')).not.toBeInTheDocument();
+    expect(screen.getByText('Staff Software Engineer')).toBeInTheDocument();
+    expect(screen.getByText('Walmart')).toBeInTheDocument();
   });
 
   it('applies custom className', () => {
@@ -27,9 +24,9 @@ describe('ProjectCard', () => {
     expect(card).toBeInTheDocument();
   });
 
-  it('has correct image source', () => {
+  it('renders achievements and technologies', () => {
     render(<ProjectCard {...defaultProps} />);
-    const image = screen.getByAltText('Project');
-    expect(image).toHaveAttribute('src', expect.stringContaining('test-image.png'));
+    expect(screen.getByText('Improved conversion')).toBeInTheDocument();
+    expect(screen.getByText('React')).toBeInTheDocument();
   });
 });

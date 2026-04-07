@@ -18,13 +18,18 @@ A modern portfolio application built with **Module Federation** using a micro-fr
 
 ## 🎯 Overview
 
-This portfolio application is split into multiple independent applications:
+This repository is organized as a workspace monorepo:
 
-- **Host App**: A Next.js application that serves as the main shell/container
-- **Remote About**: A standalone micro-frontend exposing the "About" section
-- **Remote Projects**: A standalone micro-frontend exposing the "Projects Showcase" section
+- **Host App (`apps/host`)**: Next.js 15 portfolio shell used in production
+- **Remote About (`apps/remote-about`)**: Webpack Module Federation remote for About experiments
+- **Remote Projects (`apps/remote-projects`)**: Webpack Module Federation remote for Projects experiments
+- **Shared Packages (`packages/*`)**:
+  - `@portfolio/ui` for reusable UI (Line, Pill, Button, typography)
+  - `@portfolio/content` for centralized content + asset mapping
+  - `@portfolio/feature-flags` for app/component feature toggles
+  - `@portfolio/types`, `@portfolio/utils` for shared code
 
-Each application can be developed, built, and deployed independently while being composed together at runtime using Webpack Module Federation.
+Host pages consume shared packages directly via workspace dependencies and `transpilePackages`.
 
 ## 🏗️ Architecture
 
@@ -98,38 +103,25 @@ This project uses **Module Federation** (introduced in Webpack 5) to enable a mi
 ```
 Portfolio/
 ├── apps/
-│   ├── host/                      # Main Next.js application
+│   ├── host/
 │   │   ├── src/
-│   │   │   └── app/
-│   │   │       ├── layout.tsx     # Root layout
-│   │   │       ├── page.tsx       # Home page
-│   │   │       └── globals.css    # Global styles
-│   │   ├── public/                # Static assets
-│   │   ├── next.config.ts         # Next.js configuration
-│   │   ├── tailwind.config.ts     # Tailwind configuration
+│   │   │   ├── app/               # App Router + page composition
+│   │   │   ├── components/        # Host sections (hero, projects, about, contact)
+│   │   │   └── providers/         # Theme + feature flag providers
+│   │   ├── public/                # Host-only static assets (e.g. resume)
+│   │   ├── next.config.ts         # transpilePackages for workspace packages
 │   │   └── package.json
-│   │
-│   ├── remote-about/              # About section micro-frontend
-│   │   ├── src/
-│   │   │   ├── index.tsx          # Standalone entry point
-│   │   │   ├── RemoteAbout.tsx    # About component (exposed)
-│   │   │   └── about.css          # Component styles
-│   │   ├── public/
-│   │   │   └── index.html         # Standalone HTML template
-│   │   ├── webpack.config.js      # Module Federation config
-│   │   └── package.json
-│   │
-│   └── remote-projects/           # Projects section micro-frontend
-│       ├── src/
-│       │   ├── index.tsx          # Standalone entry point
-│       │   ├── ProjectsShowcase.tsx # Projects component (exposed)
-│       │   └── projects.css       # Component styles
-│       ├── public/
-│       │   └── index.html         # Standalone HTML template
-│       ├── webpack.config.js      # Module Federation config
-│       └── package.json
-│
-└── package.json                   # Root package.json
+│   ├── remote-about/              # Module Federation remote
+│   └── remote-projects/           # Module Federation remote
+├── packages/
+│   ├── content/                   # Centralized content config + asset map
+│   ├── feature-flags/             # App-level and component-level flags
+│   ├── ui/                        # Shared UI components + typography primitives
+│   ├── types/                     # Shared TypeScript contracts
+│   └── utils/                     # Shared utilities
+├── scripts/
+│   └── capture-project-screenshots.cjs
+└── package.json
 ```
 
 ## 📦 Prerequisites
@@ -150,7 +142,7 @@ git --version
 
 ## 🚀 Installation
 
-This is a monorepo with independent applications. Each app has its own `node_modules` and dependencies.
+This is a workspace monorepo. Install dependencies once from the repository root.
 
 ### Step 1: Clone the Repository
 
@@ -159,39 +151,10 @@ git clone <repository-url>
 cd Portfolio
 ```
 
-### Step 2: Install Host Application Dependencies
+### Step 2: Install dependencies
 
 ```bash
-cd apps/host
 npm install
-```
-
-### Step 3: Install Remote About Dependencies
-
-```bash
-cd ../remote-about
-npm install
-```
-
-### Step 4: Install Remote Projects Dependencies
-
-```bash
-cd ../remote-projects
-npm install
-```
-
-### Quick Install (All Apps)
-
-You can install all dependencies at once from the root:
-
-```bash
-npm run install:all
-```
-
-Or manually:
-
-```bash
-cd apps/host && npm install && cd ../remote-about && npm install && cd ../remote-projects && npm install && cd ../..
 ```
 
 ## 💻 Development
@@ -267,10 +230,12 @@ From the root directory, you can run:
 | `npm run build:host` | Build only the host application |
 | `npm run build:remote-about` | Build only the remote-about app |
 | `npm run build:remote-projects` | Build only the remote-projects app |
-| `npm run build:remotes` | Build both remote applications |
-| `npm run install:all` | Install dependencies for all applications |
+| `npm run build:packages` | Build shared packages with build scripts |
+| `npm run lint` | Run lint across workspaces (if present) |
+| `npm run test` | Run tests across workspaces (if present) |
+| `npm run screenshots:projects` | Capture/update project screenshots |
 
-> **Note**: The remotes expose their modules via Module Federation. The host application needs to be configured to consume these remotes (Module Federation configuration may need to be added to `next.config.ts`).
+> **Note**: Host currently consumes shared workspace packages (`@portfolio/content`, `@portfolio/ui`, `@portfolio/feature-flags`, etc.) and is configured with `transpilePackages` in `apps/host/next.config.ts`.
 
 ## 🔧 How It Works
 
